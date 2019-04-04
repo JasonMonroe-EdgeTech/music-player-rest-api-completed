@@ -1,18 +1,23 @@
 package com.musicplayer.musicplayerrestapi.models;
 
 
+import com.musicplayer.musicplayerrestapi.utils.DurationToLongConverter;
+
+import javax.persistence.*;
 import java.time.Duration;
 
-
+@Entity
 public class Song{
 
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
 	private String title;
 	private String artist;
 
-
+	@Column
+	@Convert(converter= DurationToLongConverter.class)
 	private Duration length;
 
 	public Song() {	}

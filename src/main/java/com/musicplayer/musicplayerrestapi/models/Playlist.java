@@ -1,6 +1,7 @@
 package com.musicplayer.musicplayerrestapi.models;
 
 
+import javax.persistence.Id;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 public class Playlist {
 
 
+	@Id
 	private Integer id;
 
 	private String name;
