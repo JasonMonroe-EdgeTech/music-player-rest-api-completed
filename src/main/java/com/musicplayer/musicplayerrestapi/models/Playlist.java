@@ -15,7 +15,9 @@ public class Playlist {
 
 	private String name;
 
-
+	
+	@ElementCollection
+	@OneToMany(cascade = CascadeType.PERSIST)
 	private List<Song> songlist;
 	
 	public Playlist() {
