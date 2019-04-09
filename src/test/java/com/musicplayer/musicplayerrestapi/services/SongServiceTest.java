@@ -2,6 +2,7 @@ package com.musicplayer.musicplayerrestapi.services;
 
 import com.musicplayer.musicplayerrestapi.models.Song;
 import com.musicplayer.musicplayerrestapi.repositoriestests.SongRepository;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -14,13 +15,18 @@ import java.time.Duration;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-@DataJpaTest
+
 @RunWith(MockitoJUnitRunner.class)
 public class SongServiceTest {
     @Mock
     private SongRepository songRepository;
 
     private SongService songService;
+
+    @Before
+    public void setUp(){
+        this.songService = new SongService(songRepository);
+    }
 
     @Test
     public void saveSong_invokesRepoSave(){
